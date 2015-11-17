@@ -1,3 +1,4 @@
+<?php
 /*
 The MIT License (MIT)
 
@@ -26,6 +27,7 @@ class EdeskyClient {
 
   private $client_defaults = array(
     'endpoint_url' => 'https://edesky.cz/api/v1',
+    'include_texts' => 0,
     'api_key' => '',
   );
 
@@ -60,9 +62,12 @@ class EdeskyClient {
 
 }
 
-//$client = new EdeskyClient('<API_KEY>');
-//$response = $client->queryDocuments(array('keywords' => 'prodej'));
-//var_dump($response->meta);
-//var_dump($response->documents);
+/* EXAMPLE:
+$client = new EdeskyClient(array('API_KEY' => ''));
 
-?>
+$response = $client->queryDocuments(array('keywords' => 'prodej'));
+
+foreach($response->documents->document as $document) {
+  echo $document['dashboard_name'].': '.$document['name']."<br>\n";
+}
+*/
